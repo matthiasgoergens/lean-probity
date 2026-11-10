@@ -1,0 +1,21 @@
+name = "probity"
+license = "Apache-2.0"
+defaultTargets = ["Probity"]
+testDriver = "ProbityTest"
+
+[leanOptions]
+autoImplicit = false
+warningAsError = true
+
+[[lean_lib]]
+name = "Probity"
+
+# The tests are checked when this library compiles: `lake test` (or `lake build ProbityTest`).
+[[lean_lib]]
+name = "ProbityTest"
+globs = ["ProbityTest.+"]
+
+# The compiled guards of the tests, run compiled: `lake exe guards`.
+[[lean_exe]]
+name = "guards"
+root = "ProbityTest.Main"
